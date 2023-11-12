@@ -39,9 +39,13 @@ export const addPost=(post)=>async(dispatch)=>{
     }
 }
 
-export const editPost=(id,post)=>async(dispatch)=>{
+export const editPost=(id,_post)=>async(dispatch)=>{
     try{
-        const response= await axios.put(`${API_BASE_URL}/posts/${id}`,post);
+      console.log('edit post called');
+     
+      
+        const response= await axios.put(`${API_BASE_URL}/posts/${id}`,_post);
+        console.log('response.data is this',response.data)
         dispatch({
             type:EDIT_POST,
             payload: response.data
